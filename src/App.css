@@ -173,7 +173,7 @@ body {
   animation: fadeUp 0.8s ease;
 }
 
-.table {
+/* .table {
   border-collapse: collapse;
   margin: 1rem 0;
   width: 100%;
@@ -188,6 +188,93 @@ body {
 .table th {
   background: #1c2128;
   color: #58a6ff;
+} */
+
+.table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #0d1117;
+}
+
+/* Основные стили */
+.table th, 
+.table td {
+  border: 1px solid #444;
+  padding: 10px 14px;
+  text-align: center;
+  color: #c9d1d9;
+}
+
+.table th {
+  background: #1c2128;
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+/* ---------- 📱 Адаптивность ---------- */
+
+/* Контейнер для прокрутки таблицы */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* плавная прокрутка на iPhone */
+  margin-bottom: 1rem;
+}
+
+/* Для планшетов и телефонов */
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Для маленьких экранов (<480px) */
+@media (max-width: 480px) {
+  .table {
+    font-size: 0.85rem;
+  }
+
+  .table th, .table td {
+    padding: 6px 8px;
+  }
+}
+
+/* Для очень маленьких экранов (<360px) — мобильное отображение в виде карточек */
+@media (max-width: 360px) {
+  .table, .table thead, .table tbody, .table th, .table td, .table tr {
+    display: block;
+  }
+
+  .table thead {
+    display: none; /* скрываем заголовок */
+  }
+
+  .table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #161b22;
+  }
+
+  .table td {
+    text-align: left;
+    padding: 6px 10px;
+    position: relative;
+  }
+
+  /* Подписи для ячеек (имитация заголовков) */
+  .table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #58a6ff;
+    display: block;
+    margin-bottom: 4px;
+  }
 }
 
 .footer {
